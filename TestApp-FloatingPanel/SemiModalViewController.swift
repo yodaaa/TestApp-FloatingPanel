@@ -13,7 +13,8 @@ class SemiModalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor.init(red: 255/255, green: 165/255, blue: 0/255, alpha: 0.5)
+        //self.view.backgroundColor = UIColor.init(red: 255/255, green: 165/255, blue: 0/255, alpha: 0.9)
+        self.view.backgroundColor = .white
     }
     
 

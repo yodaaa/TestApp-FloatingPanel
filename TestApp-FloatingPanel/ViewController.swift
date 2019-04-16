@@ -13,6 +13,7 @@ import FloatingPanel
 class ViewController: UIViewController, MKMapViewDelegate {
     
     var floatingPanelController: FloatingPanelController!
+    var settingsPanelVC: FloatingPanelController!
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
@@ -59,13 +60,61 @@ class ViewController: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
     }
     
-
+    @IBAction func showSettingView(_ sender: Any) {
+        guard settingsPanelVC == nil else { return }
+        // Initialize FloatingPanelController
+        settingsPanelVC = FloatingPanelController()
+        
+        // Initialize FloatingPanelController and add the view
+        settingsPanelVC.surfaceView.cornerRadius = 6.0
+        settingsPanelVC.surfaceView.shadowHidden = false
+        settingsPanelVC.isRemovalInteractionEnabled = true
+        
+        let backdropTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleBackdrop(tapGesture:)))
+        settingsPanelVC.backdropView.addGestureRecognizer(backdropTapGesture)
+        
+        settingsPanelVC.delegate = self
+        
+        let contentVC = storyboard?.instantiateViewController(withIdentifier: "SettingsViewController")
+        
+        // Set a content view controller
+        settingsPanelVC.set(contentViewController: contentVC)
+        
+        //  Add FloatingPanel to self.view
+        settingsPanelVC.addPanel(toParent: self, belowView: nil, animated: true)
+    }
+    
+    @objc func handleBackdrop(tapGesture: UITapGestureRecognizer) {
+        switch tapGesture.view {
+        case floatingPanelController.backdropView:
+            floatingPanelController.hide(animated: true, completion: nil)
+        case settingsPanelVC.backdropView:
+            settingsPanelVC.removePanelFromParent(animated: true)
+            settingsPanelVC = nil
+        default:
+            break
+        }
+    }
 
 }
 
 extension ViewController: FloatingPanelControllerDelegate {
     func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
-        return CustomFloatingPanelLayout()
+        if vc == floatingPanelController {
+            return CustomFloatingPanelLayout()
+        } else if vc == settingsPanelVC {
+            return SettingsCustomFloatingPanelLayout()
+        }
+        return nil
+    }
+    
+    func floatingPanelDidEndRemove(_ vc: FloatingPanelController) {
+        switch vc {
+        case settingsPanelVC:
+            settingsPanelVC = nil
+        default:
+            break
+        }
     }
     
     func floatingPanelDidEndDragging(_ vc: FloatingPanelController, withVelocity velocity: CGPoint, targetPosition: FloatingPanelPosition) {
@@ -117,4 +166,23 @@ class CustomFloatingPanelLayout: FloatingPanelLayout {
     }
 }
 
-
+class SettingsCustomFloatingPanelLayout: FloatingPanelLayout {
+    var initialPosition: FloatingPanelPosition {
+        return .tip
+    }
+    
+    var supportedPositions: Set<FloatingPanelPosition> {
+        return [.tip]
+    }
+    
+    func insetFor(position: FloatingPanelPosition) -> CGFloat? {
+        switch position {
+        case .tip:
+            return 100.0
+        default:
+            return nil
+        }
+    }
+    
+    
+}

@@ -22,14 +22,25 @@ class ViewController: UIViewController {
         let semiModalViewController = SemiModalViewController()
         floatingPanelController.set(contentViewController: semiModalViewController)
         
-        // セミモーダルビューをっ角丸にする
+        floatingPanelController.surfaceView.backgroundColor = .clear
+        // セミモーダルビューを角丸にする
         floatingPanelController.surfaceView.cornerRadius = 24.0
-        
-        floatingPanelController.addPanel(toParent: self, belowView: nil, animated: false)
+        floatingPanelController.surfaceView.shadowHidden = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        floatingPanelController.addPanel(toParent: self, belowView: nil, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        floatingPanelController.removePanelFromParent(animated: true)
+//        floatingPanelController.removePanelFromParent(animated: true)
+
+        floatingPanelController.hide(animated: true) {
+            self.willMove(toParent: nil)
+            self.view.removeFromSuperview()
+            self.removeFromParent()
+        }
     }
 
 
@@ -46,11 +57,12 @@ extension ViewController: FloatingPanelControllerDelegate {
         switch targetPosition {
         case .tip:
             print("tip")
-            floatingPanelController.move(to: .hidden, animated: false)
+            floatingPanelController.move(to: .full, animated: true)
         case .half:
             print("half")
         case .full:
             print("full")
+            //floatingPanelController.move(to: .tip, animated: true)
         case .hidden:
             break
         }
@@ -61,12 +73,12 @@ class CustomFloatingPanelLayout: FloatingPanelLayout {
     
     // セミモーダルビューの初期位置
     var initialPosition: FloatingPanelPosition {
-        return .half
+        return .tip
     }
     
     // セミモーダルビューで対応するポジション
     var supportedPositions: Set<FloatingPanelPosition> {
-        return [.full, .half]
+        return [.full, .tip]
     }
     
     var topInteractionBuffer: CGFloat { return 0.0 }
@@ -76,9 +88,9 @@ class CustomFloatingPanelLayout: FloatingPanelLayout {
     func insetFor(position: FloatingPanelPosition) -> CGFloat? {
         switch position {
         case .full: return 100.0
-        case .half: return 262.0
+//        case .half: return 262.0
         case .tip: return 100.0
-        case .hidden: return 1.0
+        default: return nil
         }
     }
     

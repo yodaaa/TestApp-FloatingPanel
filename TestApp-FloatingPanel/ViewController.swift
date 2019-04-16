@@ -7,12 +7,25 @@
 //
 
 import UIKit
+import FloatingPanel
 
 class ViewController: UIViewController {
+    
+    var floatingPanelController: FloatingPanelController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        floatingPanelController = FloatingPanelController()
+        
+        let semiModalViewController = SemiModalViewController()
+        floatingPanelController.set(contentViewController: semiModalViewController)
+        
+        floatingPanelController.addPanel(toParent: self, belowView: nil, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        floatingPanelController.removePanelFromParent(animated: true)
     }
 
 

@@ -12,9 +12,14 @@
 		D55DC69022659A2D0016CF79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D55DC68E22659A2D0016CF79 /* Main.storyboard */; };
 		D55DC69222659A310016CF79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D55DC69122659A310016CF79 /* Assets.xcassets */; };
 		D55DC69522659A310016CF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D55DC69322659A310016CF79 /* LaunchScreen.storyboard */; };
+		D570A0A222659ADE001ECEDA /* SemiModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570A0A122659ADE001ECEDA /* SemiModalViewController.swift */; };
+		DDBE08AF44A1A584D1F42BD6 /* Pods_TestApp_FloatingPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D78D1AD0110AB7E784D5DB9 /* Pods_TestApp_FloatingPanel.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D78D1AD0110AB7E784D5DB9 /* Pods_TestApp_FloatingPanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestApp_FloatingPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD49D4F9D90550A0864F83D2 /* Pods-TestApp-FloatingPanel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp-FloatingPanel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestApp-FloatingPanel/Pods-TestApp-FloatingPanel.debug.xcconfig"; sourceTree = "<group>"; };
+		BDFD0594B3602A642A8D2453 /* Pods-TestApp-FloatingPanel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp-FloatingPanel.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestApp-FloatingPanel/Pods-TestApp-FloatingPanel.release.xcconfig"; sourceTree = "<group>"; };
 		D55DC68722659A2D0016CF79 /* TestApp-FloatingPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TestApp-FloatingPanel.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D55DC68A22659A2D0016CF79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D55DC68C22659A2D0016CF79 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,7 @@
 		D55DC69122659A310016CF79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D55DC69422659A310016CF79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D55DC69622659A310016CF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D570A0A122659ADE001ECEDA /* SemiModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDBE08AF44A1A584D1F42BD6 /* Pods_TestApp_FloatingPanel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D6BD7893F8B3B79EDD24BD4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD49D4F9D90550A0864F83D2 /* Pods-TestApp-FloatingPanel.debug.xcconfig */,
+				BDFD0594B3602A642A8D2453 /* Pods-TestApp-FloatingPanel.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		77AAD306A246F42EA7A74D0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D78D1AD0110AB7E784D5DB9 /* Pods_TestApp_FloatingPanel.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D55DC67E22659A2D0016CF79 = {
 			isa = PBXGroup;
 			children = (
 				D55DC68922659A2D0016CF79 /* TestApp-FloatingPanel */,
 				D55DC68822659A2D0016CF79 /* Products */,
+				5D6BD7893F8B3B79EDD24BD4 /* Pods */,
+				77AAD306A246F42EA7A74D0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +82,7 @@
 			children = (
 				D55DC68A22659A2D0016CF79 /* AppDelegate.swift */,
 				D55DC68C22659A2D0016CF79 /* ViewController.swift */,
+				D570A0A122659ADE001ECEDA /* SemiModalViewController.swift */,
 				D55DC68E22659A2D0016CF79 /* Main.storyboard */,
 				D55DC69122659A310016CF79 /* Assets.xcassets */,
 				D55DC69322659A310016CF79 /* LaunchScreen.storyboard */,
@@ -71,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D55DC69922659A310016CF79 /* Build configuration list for PBXNativeTarget "TestApp-FloatingPanel" */;
 			buildPhases = (
+				C4C69F718467C5FE65C0F450 /* [CP] Check Pods Manifest.lock */,
 				D55DC68322659A2D0016CF79 /* Sources */,
 				D55DC68422659A2D0016CF79 /* Frameworks */,
 				D55DC68522659A2D0016CF79 /* Resources */,
+				7FBA97153D44D59E060D61B0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,11 +159,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7FBA97153D44D59E060D61B0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TestApp-FloatingPanel/Pods-TestApp-FloatingPanel-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestApp-FloatingPanel/Pods-TestApp-FloatingPanel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4C69F718467C5FE65C0F450 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestApp-FloatingPanel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D55DC68322659A2D0016CF79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D570A0A222659ADE001ECEDA /* SemiModalViewController.swift in Sources */,
 				D55DC68D22659A2D0016CF79 /* ViewController.swift in Sources */,
 				D55DC68B22659A2D0016CF79 /* AppDelegate.swift in Sources */,
 			);
@@ -280,11 +349,13 @@
 		};
 		D55DC69A22659A310016CF79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD49D4F9D90550A0864F83D2 /* Pods-TestApp-FloatingPanel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SKGH3PPX4X;
 				INFOPLIST_FILE = "TestApp-FloatingPanel/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,11 +369,13 @@
 		};
 		D55DC69B22659A310016CF79 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDFD0594B3602A642A8D2453 /* Pods-TestApp-FloatingPanel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SKGH3PPX4X;
 				INFOPLIST_FILE = "TestApp-FloatingPanel/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
